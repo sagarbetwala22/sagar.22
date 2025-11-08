@@ -1,0 +1,292 @@
+/*
+    Color Palette:
+    --color-charcoal: #1A1A1A;
+    --color-off-white: #F9F9F9;
+    --color-accent: #E53935; /* Strong Red Accent */
+    --color-text-light: #C0C0C0;
+    --color-card-bg: #282828;
+*/
+
+/* --- Base Reset and Typography --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    background-color: #F9F9F9; /* Off-White Background */
+    color: #1A1A1A; /* Dark Charcoal Text */
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+a {
+    color: #1A1A1A;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #E53935; /* Accent Red */
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: #F9F9F9;
+    border-bottom: 1px solid #E0E0E0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.nav-links a {
+    margin: 0 1.5rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.cart-icon {
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+
+/* --- Hero Section (Full Bleed, Bold Typography) --- */
+.hero-section {
+    background-color: #1A1A1A; /* Dark Background */
+    color: #F9F9F9;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url('placeholder-hero-bg.webp'); /* Replace with a real, high-res image */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    /* Adding a subtle dark overlay for better text readability */
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4); 
+}
+
+.hero-content {
+    max-width: 900px;
+    padding: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 4.5rem; /* Bold Hero Typography */
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+.hero-content p {
+    font-size: 1.4rem;
+    color: #C0C0C0;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: #E53935; /* Accent Red */
+    color: #F9F9F9;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #C62828;
+    transform: translateY(-2px);
+}
+
+
+/* --- Product Grid Section --- */
+.product-grid-section {
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+.product-grid-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive Grid */
+    gap: 2.5rem;
+}
+
+.product-card {
+    background-color: #FFFFFF;
+    border-radius: 1.5rem; /* 2xl rounded cards */
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05); /* Soft shadow */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Subtle hover scale on images/card */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.product-image-container {
+    position: relative;
+    overflow: hidden;
+    height: 350px;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Hover reveal alternate photo (static example - real one needs JS/multiple images) */
+.product-card:hover .product-image-container img {
+    transform: scale(1.05); 
+}
+
+.quick-view {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(26, 26, 26, 0.8);
+    color: #F9F9F9;
+    padding: 0.75rem 0;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none; /* Make it clickable only when visible (in a JS setup) */
+}
+
+.product-card:hover .quick-view {
+    opacity: 1;
+}
+
+.product-info {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.product-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #E53935;
+    margin-bottom: 1rem;
+}
+
+.add-to-cart-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #1A1A1A;
+    color: #F9F9F9;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #E53935;
+}
+
+
+/* --- Footer and Legal --- */
+.footer {
+    background-color: #1A1A1A; /* Dark Charcoal */
+    color: #C0C0C0;
+    padding: 3rem 5%;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.footer-links {
+    margin-bottom: 1.5rem;
+}
+
+.footer-links a {
+    color: #C0C0C0;
+    margin: 0 1rem;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    color: #F9F9F9;
+}
+
+.disclaimer {
+    font-size: 0.85rem;
+    color: #E53935; /* Red for emphasis */
+    margin: 1.5rem 0;
+    padding: 0.5rem;
+    border: 1px solid #E53935;
+    display: inline-block;
+    max-width: 600px;
+}
+
+.footer p {
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem 5%;
+    }
+
+    .nav-links {
+        margin: 1rem 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .nav-links a {
+        margin: 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+}

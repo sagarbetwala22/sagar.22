@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Car Seller - Premium Cars for Sale</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 1rem;
+        }
+        nav ul li a:hover {
+            color: #ecf0f1;
+        }
+
+        /* Hero Section with Carousel */
+        .hero {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+        .carousel {
+            display: flex;
+            width: 300%; /* 3 images */
+            animation: slide 9s infinite;
+        }
+        .carousel img {
+            width: 33.33%;
+            height: 400px;
+            object-fit: cover;
+        }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            33% { transform: translateX(-33.33%); }
+            66% { transform: translateX(-66.66%); }
+            100% { transform: translateX(0); }
+        }
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            background: rgba(0,0,0,0.5);
+            padding: 1rem;
+            border-radius: 5px;
+        }
+
+        /* Cars Section */
+        #cars {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        .car-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .car-card:hover {
+            transform: translateY(-5px);
+        }
+        .car-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .car-info {
+            padding: 1rem;
+        }
+        .car-info h3 {
+            margin-bottom: 0.5rem;
+        }
+        .features {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+        .features li {
+            margin-bottom: 0.25rem;
+        }
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .buy-btn {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+        .buy-btn:hover {
+            background: #2ecc71;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul {
+                margin-top: 1rem;
+            }
+            .hero {
+                height: 300px;
+            }
+            .carousel img {
+                height: 300px;
+            }
+            .cars-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-text {
+                font-size: 0.9rem;
+            }
+            .car-info {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Best Car Seller</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#cars">Cars</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="carousel">
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800" alt="Luxury car">
+            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800" alt="Sports car">
+            <img src="https://images.unsplash.com/photo-1549399735-cef2e2c3f638?w=800" alt="SUV">
+        </div>
+        <div class="hero-text">
+            <h1>Welcome to Best Car Seller</h1>
+            <p>Discover the finest cars with unbeatable features and prices.</p>
+        </div>
+    </section>
+
+    <section id="cars">
+        <h2>Our Cars</h2>
+        <div class="cars-grid">
+            <!-- Car 1 -->
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400" alt="Tesla Model S">
+                <div class="car-info">
+                    <h3>Tesla Model S</h3>
+                    <ul class="features">
+                        <li>Electric motor, 405 hp</li>
+                        <li>Range: 405 miles</li>
+                        <li>Autopilot, premium audio</li>
+                    </ul>
+                    <div class="price">$89,990</div>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <!-- Car 2 -->
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400" alt="BMW M3">
+                <div class="car-info">
+                    <h3>BMW M3</h3>
+                    <ul class="features">
+                        <li>3.0L turbo engine, 473 hp</li>
+                        <li>0-60 mph in 3.9s</li>
+                        <li>Carbon fiber interior, advanced safety</li>
+                    </ul>
+                    <div class="price">$72,000</div>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <!-- Car 3 -->
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1549399735-cef2e2c3f638?w=400" alt="Toyota RAV4">
+                <div class="car-info">
+                    <h3>Toyota RAV4</h3>
+                    <ul class="features">
+                        <li>2.5L hybrid engine, 219 hp</li>
+                        <li>Fuel efficiency: 36 mpg</li>
+                        <li>All-wheel drive, Toyota Safety Sense</li>
+                    </ul>
+                    <div class="price">$28,500</div>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <!-- Car 4 -->
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400" alt="Ford Mustang">
+                <div class="car-info">
+                    <h3>Ford Mustang</h3>
+                    <ul class="features">
+                        <li>5.0L V8 engine, 460 hp</li>
+                        <li>0-60 mph in 4.0s</li>
+                        <li>Iconic design, SYNC infotainment</li>
+                    </ul>
+                    <div class="price">$55,000</div>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <!-- Car 5 -->
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400" alt="Honda Civic">
+                <div class="car-info">
+                    <h3>Honda Civic</h3>
+                    <ul class="features">
+                        <li>2.0L turbo engine, 158 hp</li>
+                        <li>Fuel efficiency: 32 mpg</li>
+                        <li>Honda Sensing safety suite</li>
+                    </ul>
+                    <div class="price">$23,000</div>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <!-- Car 6 -->
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400" alt="Mercedes-Benz C-Class">
+                <div class="car-info">
+                    <h3>Mercedes-Benz C-Class</h3>
+                    <ul class="features">
+                        <li>2.0L turbo engine, 255 hp</li>
+                        <li>0-60 mph in 5.9s</li>
+                        <li>Luxury interior, MBUX infotainment</li>
+                    </ul>
+                    <div class="price">$45,000</div>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <!-- Car 7 -->
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400" alt="Chevrolet Camaro">
+                <div class="car-info">
+                    <h3>Chevrolet Camaro</h3>
+                    <ul class="features">
+                        <li>6.2L V8 engine, 455 hp</li>
+                        <li>0-60 mph in 3.5s</li>
+                        <li>Stunning design, performance tires</li>
+                    </ul>
+                    <div class="price">$50,000</div>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <!-- Car 8 -->
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1549399735-cef2e2c3f638?w=400" alt="Nissan Rogue">
+                <div class="car-info">
+                    <h3>Nissan Rogue</h3>
+                    <ul class="features">
+                        <li>2.5L engine, 181 hp</li>
+                        <li>Fuel efficiency: 28 mpg</li>
+                        <li>All-wheel drive, Nissan Safety Shield</li>
+                    </ul>
+                    <div class="price">$27,000</div>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <!-- Car 9 -->
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400" alt="Audi A4">
+                <div class="car-info">
+                    <h3>Audi A4</h3>
+                    <ul class="features">
+                        <li>2.0L turbo engine, 201 hp</li>
+                        <li>0-60 mph in 6.1s</li>
+                        <li>Quattro all-wheel drive, virtual cockpit</li>
+                    </ul>
+                    <div class="price">$40,000</div>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <!-- Car 10 -->
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400" alt="Jeep Grand Cherokee">
+                <div class="car-info">
+                    <h3>Jeep Grand Cherokee</h3>
+                    <ul class="features">
+                        <li>3.6L V6 engine, 295 hp</li>
+                        <li>Off-road capability</li>
+                        <li>Quadra-Trac 4WD, Uconnect infotainment</li>
+                    </ul>
+                    <div class="price">$35,000</div>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <!-- Car 11 -->
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400" alt="Subaru Outback">
+                <div class="car-info">
+                    <h3>Subaru Outback</h3>
+                    <ul class="features">
+                        <li>2.5L engine, 182 hp</li>
+                        <li>All-wheel drive standard</li>
+                        <li>EyeSight driver assist, spacious cargo</li>
+                    </ul>
+                    <div class="price">$28,000</div>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <!-- Car 12 -->
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400" alt="Volkswagen Golf">
+                <div class="car-info">
+                    <h3>Volkswagen Golf</h3>
+                    <ul class="features">
+                        <li>1.4L turbo engine, 147 hp</li>
+                        <li>Fuel efficiency: 29 mpg</li>
+                        <li>Digital cockpit, Car-Net connectivity</li>
+                    </ul>
+                    <div class="price">$24,000</div>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <!-- Car 13 -->
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1549399735-cef2e2c3f638?w=400" alt="Hyundai Tucson">
+                <div class="car-info">
+                    <h3>Hyundai Tucson</h3>
+                    <ul class="features">
+                        <li>2.0L turbo engine, 187 hp</li>
+                        <li>Fuel efficiency: 25 mpg</li>
+                        <li>Hyundai Smart Cruise, blind-spot monitoring</li>
+                    </ul>
+                    <div class="price">$26,000</div>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <!-- Car 14 -->
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400" alt="Porsche 911">
+                <div class="car-info">
+                    <h3>Porsche 911</h3>
+                    <ul class="features">
+                        <li>3.0L turbo engine, 443 hp</li>
+                        <li>0-60 mph in 3.0s</li>
+                        <li>Iconic sports car, advanced aerodynamics</li>
+                    </ul>
+                    <div class="price">$120,000</div>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <!-- Car 15 -->
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400" alt="Lexus RX">
+                <div class="car-info">
+                    <h3>Lexus RX</h3>
+                    <ul class="features">
+                        <li>3.5L V6 engine, 275 hp</li>
+                        <li>Luxury seating, quiet cabin</li>
+                        <li>Lexus Safety System+, premium audio</li>
+                    </ul>
+                    <div class="price">$48,000</div>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <!-- Car 16 -->
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400" alt="Mazda CX-5">
+                <div class="car-info">
+                    <h3>Mazda CX-5</h3>
+                    <ul class="features">
+                        <li>2.5L engine, 187 hp</li>
+                        <li>Fuel efficiency: 29 mpg</li>
+                        <li>i-ACTIVSENSE safety, Skyactiv technology</li>
+                    </ul>
+                    <div class="price">$27,000</div>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <!-- Car 17 -->
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400" alt="Dodge Charger">
+                <div class="car-info">
+                    <h3>Dodge Charger</h3>
+                    <ul class="features">
+                        <li>3.6L V6 engine, 300 hp</li>
+                        <li>0-60 mph in 6.4s</li>
+                        <li>Muscular design, Uconnect touchscreen</li>
+                    </ul>
+                    <div class="price">$32,000</div>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+            <!-- Car 18 -->
+            <div class="car-card">
+                <img src="https://images.unsplash.com/photo-1549399735-cef2e2c3f638?w=400" alt

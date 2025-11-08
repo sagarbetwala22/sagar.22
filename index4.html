@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vyra — Modern Clothing</title>
+  <meta name="description" content="Vyra — Minimal, modern clothing storefront inspired by premium retail design. Not affiliated with any brand." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Local stylesheet -->
+  <link rel="stylesheet" href="stylesh.css">
+</head>
+<body>
+  <div class="top-announcement">Free shipping across India on orders over ₹1,499 — Vyra</div>
+
+  <header class="container header" id="siteHeader">
+    <div class="row" style="gap:20px;align-items:center">
+      <div class="brand">Vyra<span>.</span></div>
+      <nav class="primary" aria-label="Main">
+        <a href="#">Women</a>
+        <a href="#">Men</a>
+        <a href="#">Kids</a>
+        <a href="#">New</a>
+        <a href="#">Sale</a>
+      </nav>
+    </div>
+
+    <div class="actions">
+      <button class="icon-btn" aria-label="Search">🔍</button>
+      <button class="icon-btn" aria-label="Account">👤</button>
+      <button class="icon-btn" aria-label="Cart">👜</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="hero">
+      <div class="hero-card">
+        <h1 class="hero-title">Clean essentials. Modern silhouettes.</h1>
+        <p class="hero-sub">Vyra — contemporary wardrobe staples, ethically crafted. Shop new-season collections curated for everyday minimalism.</p>
+        <div class="cta-row">
+          <button class="btn btn-primary">Anime Clothes</button>
+          <button class="btn btn-ghost">Shop Men's</button>
+        </div>
+
+        <div class="features-row">
+          <div class="feature">
+            <div class="muted small">Sustainable</div>
+            <div class="strong">Recycled cotton</div>
+          </div>
+          <div class="feature">
+            <div class="muted small">Free returns</div>
+            <div class="strong">30-day policy</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img src="https://m.media-amazon.com/images/I/51GQV63Uw4L.jpg">
+      </div>
+    </section>
+
+    <section aria-labelledby="shop-now" class="shop-section">
+      <div class="controls">
+        <div class="filters">
+          <select class="select" aria-label="Filter by category">
+            <option>All</option>
+            <option>Kimonos</option>
+            <option>Denim</option>
+            <option>Outerwear</option>
+            <option>Accessories</option>
+          </select>
+          <select class="select" aria-label="Sort by">
+            <option>Newest</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+          </select>
+        </div>
+        <div class="muted">Showing <strong>12</strong> items</div>
+      </div>
+
+      <div class="grid" id="productGrid">
+        <!-- Product cards (12) -->
+        <article class="card fade" data-id="1">
+          <div class="card-media-wrap" style="position:relative">
+            <div class="badge">NEW</div>
+            <div class="thumb"><img src="https://m.media-amazon.com/images/I/6161xaXUWDL.jpg"></div>
+          </div>
+          <h4>Draken T-shirt</h4>
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <div class="price">₹3,499</div>
+            <button class="btn" data-action="quickview" data-id="1">Quick view</button>
+          </div>
+        </article>
+
+        <article class="card fade" data-id="2">
+          <div class="card-media-wrap"><div class="thumb"><img src="https://tokyorevengersstore.com/wp-content/uploads/2022/10/toman-mikey-kimono-506020-removebg-preview.png"></div></div>
+          <h4>Mikey Kimono</h4>
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <div class="price">₹2,099</div>
+            <button class="btn" data-action="quickview" data-id="2">Quick view</button>
+          </div>
+        </article>
+
+        <article class="card fade" data-id="3">
+          <div class="card-media-wrap"><div class="thumb"><img src="https://images-cdn.ubuy.co.in/63b1abaf0e7749296f5d4863-toptok-tokyo-revengers-cosplay-costume.jpg"></div></div>
+          <h4>Toman Kimono</h4>
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <div class="price">₹1,799</div>
+            <button class="btn" data-action="quickview" data-id="3">Quick view</button>
+          </div>
+        </article>
+
+        <article class="card fade" data-id="4">
+          <div class="card-media-wrap"><div class="thumb"><img src="https://i5.walmartimages.com/asr/3a5e1677-b02a-4fdc-9b6d-6606fb029dc9.0555ce6bc8504d27b3b145fce8748630.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF"></div></div>
+          <h4>Toman Kimono</h4>
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <div class="price">₹1,499</div>
+            <button class="btn" data-action="quickview" data-id="4">Quick view</button>
+          </div>
+        </article>
+
+        <article class="card fade" data-id="5">
+          <div class="card-media-wrap"><div class="thumb"><img src="https://via.placeholder.com/900x1100.png?text=Organic+Cotton+Tee" alt="T-shirt"></div></div>
+          <h4>Organic Cotton Tee</h4>
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <div class="price">₹799</div>
+            <button class="btn" data-action="quickview" data-id="5">Quick view</button>
+          </div>
+        </article>
+
+        <article class="card fade" data-id="6">
+          <div class="card-media-wrap"><div class="thumb"><img src="https://via.placeholder.com/900x1100.png?text=Lightweight+Bomber" alt="Bomber jacket"></div></div>
+          <h4>Lightweight Bomber</h4>
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <div class="price">₹2,299</div>
+            <button class="btn" data-action="quickview" data-id="6">Quick view</button>
+          </div>
+        </article>
+
+        <article class="card fade" data-id="7">
+          <div class="card-media-wrap"><div class="thumb"><img src="https://via.placeholder.com/900x1100.png?text=Wool+Blend+Coat" alt="Coat"></div></div>
+          <h4>Wool Blend Coat</h4>
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <div class="price">₹4,999</div>
+            <button class="btn" data-action="quickview" data-id="7">Quick view</button>
+          </div>
+        </article>
+
+        <article class="card fade" data-id="8">
+          <div class="card-media-wrap"><div class="thumb"><img src="https://via.placeholder.com/900x1100.png?text=Relaxed+Shorts" alt="Shorts"></div></div>
+          <h4>Relaxed Shorts</h4>
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <div class="price">₹999</div>
+            <button class="btn" data-action="quickview" data-id="8">Quick view</button>
+          </div>
+        </article>
+
+        <article class="card fade" data-id="9">
+          <div class="card-media-wrap"><div class="thumb"><img src="https://via.placeholder.com/900x1100.png?text=Cotton+Shirt" alt="Shirt"></div></div>
+          <h4>Cotton Shirt</h4>
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <div class="price">₹1,199</div>
+            <button class="btn" data-action="quickview" data-id="9">Quick view</button>
+          </div>
+        </article>
+
+        <article class="card fade" data-id="10">
+          <div class="card-media-wrap"><div class="thumb"><img src="https://via.placeholder.com/900x1100.png?text=Everyday+Joggers" alt="Joggers"></div></div>
+          <h4>Everyday Joggers</h4>
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <div class="price">₹1,299</div>
+            <button class="btn" data-action="quickview" data-id="10">Quick view</button>
+          </div>
+        </article>
+
+        <article class="card fade" data-id="11">
+          <div class="card-media-wrap"><div class="thumb"><img src="https://via.placeholder.com/900x1100.png?text=Tiered+Dress" alt="Dress"></div></div>
+          <h4>Tiered Dress</h4>
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <div class="price">₹2,199</div>
+            <button class="btn" data-action="quickview" data-id="11">Quick view</button>
+          </div>
+        </article>
+
+        <article class="card fade" data-id="12">
+          <div class="card-media-wrap"><div class="thumb"><img src="https://via.placeholder.com/900x1100.png?text=Woven+Scarf" alt="Scarf"></div></div>
+          <h4>Woven Scarf</h4>
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <div class="price">₹599</div>
+            <button class="btn" data-action="quickview" data-id="12">Quick view</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Quick view modal -->
+    <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal" role="document" aria-labelledby="modalTitle">
+        <div>
+          <div class="big" id="modalImage" style="background:#f6f6f6"></div>
+          <div class="thumbs" id="modalThumbs"></div>
+        </div>
+        <div style="padding:12px">
+          <h2 id="modalTitle">Product title</h2>
+          <p id="modalPrice" style="font-weight:700;margin:8px 0">₹0</p>
+          <p id="modalDesc" class="muted">Product description — replace with real copy from CMS. Material info, care instructions and size & fit details should be here.</p>
+
+          <div style="margin-top:18px">
+            <label class="muted">Size</label>
+            <div class="row" style="margin-top:8px">
+              <button class="select">S</button>
+              <button class="select">M</button>
+              <button class="select">L</button>
+              <button class="select">XL</button>
+            </div>
+          </div>
+
+          <div style="margin-top:18px;display:flex;gap:10px">
+            <button class="btn btn-primary">Add to bag</button>
+            <button class="btn">Add to wishlist</button>
+          </div>
+
+          <div style="margin-top:22px" class="muted">Model is 5'9" and wearing size M. Free returns within 30 days.</div>
+
+          <div style="margin-top:22px;display:flex;justify-content:flex-end">
+            <button class="btn" id="closeModalBtn">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="strong">Vyra</div>
+        <div class="muted">Modern essentials. Ethical production. Clear pricing.</div>
+      </div>
+      <div>
+        <div class="strong">Customer Service</div>
+        <div class="muted" style="line-height:1.8">Contact us<br/>Shipping & Returns<br/>Size guide</div>
+      </div>
+      <div>
+        <div class="strong">Company</div>
+        <div class="muted" style="line-height:1.8">About Vyra<br/>Careers<br/>Sustainability</div>
+      </div>
+      <div>
+        <div class="strong">Stay in touch</div>
+        <div style="margin-top:8px">
+          <input placeholder="Your email" class="newsletter-input" />
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:18px;display:flex;justify-content:space-between;align-items:center">
+      <div class="muted">© Vyra — All rights reserved.</div>
+      <div class="row muted">India • English</div>
+    </div>
+  </footer>
+
+  <!-- GSAP (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Local script -->
+  <script src="script.js"></script>
+</body>
+</html>

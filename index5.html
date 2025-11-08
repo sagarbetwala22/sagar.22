@@ -1,0 +1,311 @@
+<!--
+Single-file responsive sneaker showroom template (HTML + CSS + JS)
+Usage: save as index.html and open in a browser.
+Notes: Replace placeholder images (unsplash) with your own. For a production store you'll need a backend, proper asset optimization, and licensing for product photos.
+-->
+
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Premium Sneaker Showroom — Demo</title>
+  <meta name="description" content="High-end sneaker showroom — not affiliated with any brand. Responsive HTML/CSS/JS template." />
+
+  <style>
+    /* ---------- Reset & base ---------- */
+    :root{
+      --accent:#ff2e63;
+      --dark:#0f1724;
+      --muted:#9aa4b2;
+      --glass: rgba(255,255,255,0.06);
+      --card: rgba(255,255,255,0.03);
+      --radius:14px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background: linear-gradient(180deg,#071021 0%, #0b1220 60%); color:#e6eef6; -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale; line-height:1.45; padding-bottom:80px;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+
+    /* ---------- Container ---------- */
+    .wrap{max-width:1200px; margin:28px auto; padding:0 20px}
+
+    /* ---------- Header / Nav ---------- */
+    header.site{
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:20px; padding:14px 18px; margin:18px; box-shadow: 0 6px 20px rgba(2,6,23,0.6);
+    }
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{width:46px; height:46px; background:var(--card); display:flex; align-items:center; justify-content:center; border-radius:10px; font-weight:700}
+    nav{margin-left:auto}
+    .nav-list{display:flex; gap:18px; align-items:center}
+    .btn{padding:8px 12px; border-radius:10px; background:transparent; border:1px solid rgba(255,255,255,0.06); cursor:pointer}
+
+    /* ---------- Hero Carousel ---------- */
+    .hero{display:grid; grid-template-columns:1fr 420px; gap:28px; align-items:center; margin-top:28px}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:22px; border-radius:20px}
+    .tag{font-size:12px; color:var(--muted); margin-bottom:10px}
+    h1{font-size:32px; margin:0 0 12px}
+    p.lead{color:var(--muted); margin:0 0 18px}
+    .shop-cta{display:flex; gap:12px; align-items:center}
+    .primary{background:linear-gradient(90deg,var(--accent), #ff6b8a); padding:10px 16px; border-radius:12px; color:white; font-weight:700}
+
+    /* Carousel visuals */
+    .carousel{position:relative; border-radius:14px; overflow:hidden; height:360px}
+    .slides{display:flex; height:100%; transition:transform 600ms cubic-bezier(.2,.9,.2,1)}
+    .slide{min-width:100%; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,rgba(0,0,0,0.2),rgba(0,0,0,0.45))}
+    .slide img{width:80%; transform:translateY(-6px); box-shadow: 0 18px 40px rgba(2,6,23,0.7); border-radius:20px}
+    .dots{display:flex; gap:8px; position:absolute; left:50%; transform:translateX(-50%); bottom:12px}
+    .dot{width:10px; height:10px; border-radius:999px; background:rgba(255,255,255,0.12); cursor:pointer}
+    .dot.active{background:var(--accent)}
+
+    /* ---------- Product Grid ---------- */
+    .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:18px; margin-top:26px}
+    .card{background:var(--card); border-radius:14px; padding:14px; overflow:hidden; position:relative}
+    .prod-img{height:180px; display:flex; align-items:center; justify-content:center;}
+    .prod-meta{padding-top:12px}
+    .price{font-weight:700}
+    .muted{color:var(--muted); font-size:13px}
+
+    /* quick view modal */
+    .modal{position:fixed; inset:0; display:none; place-items:center; background:rgba(2,6,23,0.6)}
+    .modal.show{display:grid}
+    .modal-card{max-width:900px; width:96%; background:linear-gradient(180deg,#07101a,#0b1220); border-radius:16px; padding:18px; display:grid; grid-template-columns:1fr 1fr; gap:18px}
+
+    /* search / filters */
+    .controls{display:flex; gap:10px; margin-top:16px}
+    .search{flex:1; padding:10px 12px; border-radius:10px; background:var(--glass); border:1px solid rgba(255,255,255,0.03)}
+
+    /* footer */
+    footer.site{margin-top:40px; padding:20px; text-align:center; color:var(--muted)}
+
+    /* responsive */
+    @media(max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .carousel{height:300px}
+    }
+    @media(max-width:560px){
+      h1{font-size:22px}
+      .carousel{height:220px}
+      .prod-img{height:140px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site">
+      <div style="display:flex; align-items:center">
+        <div class="brand">
+          <div class="logo">SS</div>
+          <div>
+            <div style="font-weight:700">SneakerShowroom</div>
+            <div style="font-size:12px; color:var(--muted)">Not affiliated with any brand</div>
+          </div>
+        </div>
+        <nav>
+          <div class="nav-list">
+            <a class="btn" href="#collections">Collections</a>
+            <a class="btn" href="#drops">Drops</a>
+            <a class="btn" href="#contact">Contact</a>
+            <button class="btn primary" id="cartBtn">Cart (0)</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-card">
+          <div class="tag">NEW DROP</div>
+          <h1>Limited Edition Court Runner — Premium Craftsmanship</h1>
+          <p class="lead">Responsive showroom demo with animated hero, product grid, quick-view modal and filters. Replace photos with your own to match brand aesthetic.</p>
+          <div class="controls">
+            <input class="search" id="search" placeholder="Search models, colors, sizes..." />
+            <select id="sort" class="btn" style="min-width:120px">
+              <option value="featured">Featured</option>
+              <option value="low">Price: Low → High</option>
+              <option value="high">Price: High → Low</option>
+            </select>
+          </div>
+
+          <div style="margin-top:16px" class="shop-cta">
+            <button class="primary" id="shopNow">Shop Now</button>
+            <button class="btn" id="viewAll">View All</button>
+          </div>
+        </div>
+
+        <aside>
+          <div class="carousel" aria-hidden="false">
+            <div class="slides" id="slides">
+              <!-- NOTE: use your own image urls here or local images -->
+              <div class="slide"><img loading="lazy" src="https://images.unsplash.com/photo-1519741499733-6e8fb7f7f6d3?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="sneaker 1"></div>
+              <div class="slide"><img loading="lazy" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=2" alt="sneaker 2"></div>
+              <div class="slide"><img loading="lazy" src="https://images.unsplash.com/photo-1528701800489-4767d2a1a0b3?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=3" alt="sneaker 3"></div>
+            </div>
+            <div class="dots" id="dots"></div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- Products -->
+      <section id="collections">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-top:18px">
+          <h2 style="margin:0">Collections</h2>
+          <div style="color:var(--muted)">Showing <span id="count">0</span> products</div>
+        </div>
+
+        <div class="grid" id="productGrid"></div>
+      </section>
+
+    </main>
+
+    <!-- Quick view modal -->
+    <div class="modal" id="modal">
+      <div class="modal-card">
+        <div>
+          <img id="modalImg" src="" alt="product" style="width:100%; border-radius:10px" />
+        </div>
+        <div>
+          <h3 id="modalTitle">Title</h3>
+          <div class="muted" id="modalSku">SKU: —</div>
+          <div style="margin-top:12px" class="price" id="modalPrice">₹0</div>
+          <p class="muted" style="margin-top:12px">High-quality mockup. Add size selector, inventory check and real checkout via backend later.</p>
+          <div style="margin-top:16px; display:flex; gap:10px">
+            <button class="primary" id="addCart">Add to cart</button>
+            <button class="btn" id="closeModal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap">
+        <div style="font-weight:700">SneakerShowroom</div>
+        <div class="muted">© <span id="year"></span> — Built with HTML/CSS/JS. For production, add payment & CMS.</div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // ---------- Sample product data (replace with your real data) ----------
+    const products = [
+      {id:1, title:'Court Runner — Black/Crimson', price:11999, img:'https://images.unsplash.com/photo-1519741499733-6e8fb7f7f6d3?q=80&w=1200&auto=format&fit=crop', sku:'CR-001'},
+      {id:2, title:'Court Runner — White/Gold', price:12999, img:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop', sku:'CR-002'},
+      {id:3, title:'Street Pro — Nightshade', price:9999, img:'https://images.unsplash.com/photo-1528701800489-4767d2a1a0b3?q=80&w=1200&auto=format&fit=crop', sku:'SP-001'},
+      {id:4, title:'Altitude Mid — Grey', price:8999, img:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop', sku:'AM-009'},
+      {id:5, title:'CloudRun — Sunset', price:13999, img:'https://images.unsplash.com/photo-1519741499733-6e8fb7f7f6d3?q=80&w=1200&auto=format&fit=crop', sku:'CR-011'},
+      {id:6, title:'Retro High — Navy', price:10999, img:'https://images.unsplash.com/photo-1528701800489-4767d2a1a0b3?q=80&w=1200&auto=format&fit=crop', sku:'RH-003'}
+    ];
+
+    // ---------- UI wiring ----------
+    const grid = document.getElementById('productGrid');
+    const countEl = document.getElementById('count');
+    const searchInput = document.getElementById('search');
+    const sortSelect = document.getElementById('sort');
+    const yearEl = document.getElementById('year');
+    yearEl.textContent = new Date().getFullYear();
+
+    function formatPrice(n){ return '₹' + n.toLocaleString('en-IN'); }
+
+    function renderProducts(list){
+      grid.innerHTML = '';
+      list.forEach(p=>{
+        const c = document.createElement('div'); c.className='card';
+        c.innerHTML = `
+          <div class="prod-img"><img loading="lazy" src="${p.img}" alt="${p.title}" style="width:90%; border-radius:10px"></div>
+          <div class="prod-meta">
+            <div style="display:flex; justify-content:space-between; align-items:center">
+              <div style="font-weight:700">${p.title}</div>
+              <div class="price">${formatPrice(p.price)}</div>
+            </div>
+            <div class="muted">${p.sku}</div>
+            <div style="margin-top:10px; display:flex; gap:8px">
+              <button class="btn" data-id="${p.id}" onclick="quickView(${p.id})">Quick view</button>
+              <button class="primary" onclick="addToCart(${p.id})">Add</button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(c);
+      });
+      countEl.textContent = list.length;
+    }
+
+    // initial render
+    renderProducts(products);
+
+    // search & sort
+    function applyFilters(){
+      const q = searchInput.value.trim().toLowerCase();
+      let out = products.filter(p=> p.title.toLowerCase().includes(q) || p.sku.toLowerCase().includes(q));
+      const s = sortSelect.value;
+      if(s === 'low') out.sort((a,b)=>a.price-b.price);
+      if(s === 'high') out.sort((a,b)=>b.price-a.price);
+      renderProducts(out);
+    }
+    searchInput.addEventListener('input', applyFilters);
+    sortSelect.addEventListener('change', applyFilters);
+
+    // quick view modal
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modalImg');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalSku = document.getElementById('modalSku');
+
+    window.quickView = function(id){
+      const p = products.find(x=>x.id===id);
+      if(!p) return;
+      modalImg.src = p.img;
+      modalTitle.textContent = p.title;
+      modalPrice.textContent = formatPrice(p.price);
+      modalSku.textContent = 'SKU: ' + p.sku;
+      modal.classList.add('show');
+    }
+    document.getElementById('closeModal').addEventListener('click', ()=> modal.classList.remove('show'));
+    modal.addEventListener('click', e=>{ if(e.target===modal) modal.classList.remove('show') });
+
+    // cart (very basic local-state)
+    let cart = [];
+    function addToCart(id){
+      const p = products.find(x=>x.id===id);
+      if(!p) return;
+      cart.push(p);
+      document.getElementById('cartBtn').textContent = `Cart (${cart.length})`;
+      alert(p.title + ' added to cart — this is demo only.');
+    }
+    document.getElementById('addCart').addEventListener('click', ()=>{
+      // add current modal product
+      const title = modalTitle.textContent;
+      const p = products.find(x=>x.title===title);
+      if(p) addToCart(p.id);
+    });
+
+    // simple hero carousel
+    const slidesEl = document.getElementById('slides');
+    const dotsEl = document.getElementById('dots');
+    const total = slidesEl.children.length;
+    let idx = 0;
+    for(let i=0;i<total;i++){
+      const d = document.createElement('div'); d.className='dot'; d.dataset.i = i; d.addEventListener('click', ()=>go(i)); dotsEl.appendChild(d);
+    }
+    function updateDots(){ Array.from(dotsEl.children).forEach((el,i)=> el.classList.toggle('active', i===idx)); }
+    function go(i){ idx = i; slidesEl.style.transform = `translateX(-${i*100}%)`; updateDots(); }
+    updateDots();
+    setInterval(()=>{ idx = (idx+1)%total; go(idx); }, 4200);
+
+    // small helpers
+    document.getElementById('shopNow').addEventListener('click', ()=> window.location.hash = '#collections');
+    document.getElementById('viewAll').addEventListener('click', ()=> renderProducts(products));
+
+    // initial product count
+    applyFilters();
+  </script>
+</body>
+</html>
